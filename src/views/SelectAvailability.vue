@@ -7,12 +7,10 @@ export default {
     const numberOfSession = ref<number>(0);
     const allowVideoTourCall = ref<boolean>(false);
     
-    // Define the days of the week
     const days = ref<string[]>(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']);
 
-    // Create a reactive object to hold selected time and new time for each day
     const selectedTimes = ref<{ [key: string]: string }>(days.value.reduce((acc, day) => {
-      acc[day] = '7:00 AM'; // Default time for each day
+      acc[day] = '7:00 AM'; // Starting time for each day
       return acc;
     }, {} as { [key: string]: string }));
     
@@ -41,7 +39,7 @@ export default {
 
     const generateTimes = (): string[] => {
       const startHour = 7;
-      const endHour = 19; // 7 PM in 24-hour format
+      const endHour = 19; // 7 PM 
       const interval = 15; // minutes
       const times: string[] = [];
 
